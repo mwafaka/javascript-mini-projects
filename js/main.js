@@ -53,7 +53,7 @@ function handleData(data, cityImage) {
   let str = `<div class ='container' id="${data.name}">
   
  <h1>${data.name}</h1>
- <img src= "${cityImage}" alt="">
+ <img id="bg" src=  "${cityImage}" alt="">
  <h4>humidity : ${data.main.humidity} %</h4>
  <h4>Temp : ${temp} <span>c°</span> </h4>
  <img src="./img/${data.weather[0].icon}.png" alt="">
