@@ -1,0 +1,15 @@
+.link {
+  display: inline-block;
+  height: 34px;
+  width: 150px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 50px;
+  background-color: lightgrey;
+}
+body {
+  background-color: black;
+}
+li {
+  color: white;
+}
