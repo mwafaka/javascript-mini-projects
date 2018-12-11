@@ -1,6 +1,6 @@
 let cities = new Set();
 function clickMe() {
-  //document.getElementById("demo").innerHTML = "";
+  document.getElementById("demo").innerHTML = "";
   let me = document.getElementById("input").value;
 
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${me}&APPID=9b3b4e386b6cac9f20fa1928c2b096ca&units=metric`;
@@ -28,7 +28,7 @@ function clickMe() {
         }
 
         handleData(data, cityImage);
-        //cities.add(data.name.toLowerCase());
+        // cities.add(data.name.toLowerCase());
       }
 
       getUser();
