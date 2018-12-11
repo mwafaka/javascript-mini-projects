@@ -1,4 +1,5 @@
 var cartContentArray = [];
+
 $(document).ready(() => {
   function smoothScroll(target, duration) {
     var target = document.querySelector(target);
@@ -128,18 +129,18 @@ $(document).ready(() => {
   ];
   items.map(item => {
     let itemObj = ` 
-    <div class="col-md-3 card-con mt-5">
-    <div class="card">
-        <img src="${item.imgUrl}" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5>${item.type}</h5>
-            <h5>${item.price}</h5>
-            <button  id="${
-              item.id
-            }"  class="add-to-cart btn pink btn-danger "><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
-                Cart</button>
-        </div>
-  </div>`;
+                  <div class="col-md-3 card-con mt-5">
+                    <div class="card">
+                      <img src="${item.imgUrl}" class="card-img-top" alt="">
+                      <div class="card-body">
+                          <h5>${item.type}</h5>
+                          <h5>${item.price}</h5>
+                          <button  id="${
+                            item.id
+                          }"  class="add-to-cart btn pink btn-danger "><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to
+                              Cart</button>
+                      </div>
+                </div>`;
     $(".item-container").append(itemObj);
   });
   $(".add-to-cart").on("click", function(e) {
@@ -166,46 +167,49 @@ $(document).ready(() => {
     console.log(cartContentArray);
     //****************************************************************************** */
     var cart = $("#cart-qty-id").html(cartContentArray.length);
+
+    var imgtodrag = $(this)
+      .parent()
+      .parent(".card")
+      .find("img")
+      .eq(0);
+    if (imgtodrag) {
+      var imgclone = imgtodrag
+        .clone()
+        .offset({
+          top: imgtodrag.offset().top,
+          left: imgtodrag.offset().left
+        })
+        .css({
+          opacity: "0.5",
+          position: "absolute",
+          height: "400px",
+          width: "200px",
+          "z-index": "100"
+        })
+        .appendTo($("body"))
+        .animate(
+          {
+            top: cart.offset().top + 10,
+            left: cart.offset().left + 10,
+            width: 75,
+            height: 75
+          },
+          1000,
+          "easeInOutExpo"
+        );
+      imgclone.animate({
+        width: 0,
+        height: 0
+      });
+    }
   });
-  var imgtodrag = $(this)
-    .parent(".item")
-    .find("img")
-    .eq(0);
-  if (imgtodrag) {
-    var imgclone = imgtodrag
-      .clone()
-      .offset({
-        top: imgtodrag.offset().top,
-        left: imgtodrag.offset().left
-      })
-      .css({
-        opacity: "0.5",
-        position: "absolute",
-        height: "150px",
-        width: "150px",
-        "z-index": "100"
-      })
-      .appendTo($("body"))
-      .animate(
-        {
-          top: cart.offset().top + 10,
-          left: cart.offset().left + 10,
-          width: 75,
-          height: 75
-        },
-        1000,
-        "easeInOutExpo"
-      );
-    imgclone.animate({
-      width: 0,
-      height: 0
-    });
-  }
 });
 ////////////////////////////////////////////////////////
-$(".cartIcon").on("click", function() {
+$("div").on("click", "#cartIcon", function() {
   generateCart();
 });
+
 $(".cart").on("click", ".remove-item", function(e) {
   let id = e.target.id;
   let index = cartContentArray.findIndex(item => item.id == id);
@@ -213,6 +217,7 @@ $(".cart").on("click", ".remove-item", function(e) {
   cartContentArray.splice(index, 1);
   generateCart();
 });
+
 function generateCart() {
   $(".cart").html("");
   if (cartContentArray.length == 0) {
@@ -223,21 +228,21 @@ function generateCart() {
     cartContentArray.forEach((item, id) => {
       let itemObj = "";
       itemObj = `<div>
-      <table class="table">
-      <thead>
-    <tr>
-      <td><img
-      class="cart-image "
-      src="${item.imgUrl}"/></td>
-      <td>${item.type}</td>
-      <td>${item.price}</td>
-      <td>${item.qty}</td>
-      <td> <i class="fas fa-trash-alt remove-item" />
-      </td>
-    </tr>
-  </thead>
-      </table>
-      </div>`;
+          <table class="table">
+          <thead>
+        <tr>
+          <td><img
+          class="cart-image "
+          src="${item.imgUrl}"/></td>
+          <td>${item.type}</td>
+          <td>${item.price}</td>
+          <td>${item.qty}</td>
+          <td> <i class="fas fa-trash-alt remove-item" />
+          </td>
+        </tr>
+      </thead>
+          </table>
+          </div>`;
       $(".cart").append(itemObj);
     });
   }
