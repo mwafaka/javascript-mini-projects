@@ -104,12 +104,13 @@ a {
   float: right;
 }
 .cart-image {
-  width: 70px;
+  width: 71px;
   height: 90px;
 }
 .modal-content {
   background-color: #ece8ba;
 }
+
 .navbar-nav {
   cursor: pointer;
 }
