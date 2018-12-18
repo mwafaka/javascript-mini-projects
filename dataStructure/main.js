@@ -108,3 +108,6 @@ LinkedList.prototype.search = function(searchValue) {
   }
   return null;
 };
+
+let list = new LinkedList();
+list.addToHead(300);
