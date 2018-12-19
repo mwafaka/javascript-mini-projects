@@ -111,3 +111,66 @@ LinkedList.prototype.search = function(searchValue) {
 
 let list = new LinkedList();
 list.addToHead(300);
+
+/////////////Binary Search Tree/////////////////
+function Node(value) {
+  this.data = value;
+  this.left = null;
+  this.right = null;
+}
+function BinarySearchTree() {
+  this.root = null;
+  this.insert = function(data) {
+    let newNode = new Node(data);
+    if (!this.root) this.root = newNode;
+    else this.insertNode(this.root, newNode);
+  };
+  this.insertNode = function(node, newNode) {
+    if (newNode.data < node.data) {
+      if (!node.left) node.left = newNode;
+      else this.insertNode(node.left, newNode);
+    } else {
+      if (!node.right) node.right = newNode;
+      else this.insertNode(node.right, newNode);
+    }
+  };
+  this.inorder = function(node) {
+    if (node) {
+      this.inorder(node.left);
+      console.log(node.data);
+      this.inorder(node.right);
+    }
+  };
+  this.preorder = function(node) {
+    if (node) {
+      console.log(node.data);
+      this.preorder(node.left);
+      this.preorder(node.right);
+    }
+  };
+  this.postorder = function(node) {
+    if (node) {
+      this.postorder(node.left);
+      this.postorder(node.right);
+      console.log(node.data);
+    }
+  };
+
+  this.minNode = function(node) {
+    if (node.left) return this.minNode(node.left);
+    else return node;
+  };
+  this.Search = function(node, data) {
+    if (node === null) return null;
+    else if (data < node.data) return this.search(node.left, data);
+    else if (data > node.data) return this.search(node.right, data);
+    else return node;
+  };
+}
+
+let tree = new BinarySearchTree();
+tree.insert(50);
+tree.insert(39);
+tree.insert(70);
+tree.insert(20);
+tree.insert(62);
