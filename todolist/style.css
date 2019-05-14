@@ -1,0 +1,36 @@
+body {
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#container {
+  padding-left: 250px;
+  background-color: black;
+  border-radius: 50px;
+  border: 1px solid red;
+}
+h1 {
+  color: orange;
+  font-size: 60px;
+}
+h2 {
+  color: orange;
+  font-size: 60px;
+}
+li {
+  color: steelblue;
+  font-size: 60px;
+}
+button {
+  color: red;
+  background: orange;
+  border-radius: 50px;
+  cursor: pointer;
+}
+input {
+  color: red;
+  margin-top: 20px;
+  height: 30px;
+  background-color: orange;
+  border-radius: 50px;
+}

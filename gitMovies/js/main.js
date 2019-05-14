@@ -22,8 +22,9 @@ function getMovies(searchText) {
     .get(`http://www.omdbapi.com/?apikey=380781b3&s=${searchText}`)
 
     .then(response => {
-      console.log(response);
       let movies = response.data.Search;
+      console.log(response.data);
+
       let output = "";
       $.each(movies, (index, movie) => {
         output += `
