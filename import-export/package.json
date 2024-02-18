@@ -1,0 +1,17 @@
+{
+  "name": "import-export",
+  "version": "1.0.0",
+  "description": "### In JavaScript benötigt man den import-Befehl, um Module oder externe Bibliotheken in einem JavaScript-Programm zu verwenden.",
+  "main": "index.js",
+  "dependencies": {
+    "moment": "^2.30.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+  
+}

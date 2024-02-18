@@ -1,0 +1,27 @@
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+  }
+  .card img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  .card h2 {
+    margin-top: 10px;
+  }
+  .card p {
+    margin-top: 10px;
+  }
+  .card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
